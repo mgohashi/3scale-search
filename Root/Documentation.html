@@ -1,0 +1,33 @@
+{% content_for javascripts %}
+    {{ 'active_docs.js' | javascript_include_tag }}
+{% endcontent_for %}
+
+<div class="api-list-container" style="display: none;">
+  <h1>Documentation</h1>
+  <div class="md-form active-cyan-2 mb-3">
+    <input id="search-field"  class="form-control" type="text" placeholder="Search by the name of the API or the description..." aria-label="Search">
+  </div>
+  <div class="api-list"></div>
+</div>
+
+<div class="swagger-section">
+  <div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
+  <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+</div>
+
+<script type="application/javascript">
+  var services = {
+  {% for item in provider.api_specs %}
+  {% assign status = item.service.system_name | slice: 0,2 %}
+    "{{ item.system_name }}": {
+      name: "{{ item.system_name|url_encode }}",
+      url: "{{ item.url }}",
+      description: "{{ item.service.description|url_encode }}",
+      serviceEndpoint: "{{ item.api_product_production_public_base_url }}"
+    },
+  {% endfor %}
+  };
+   console.log(services);
+</script>
+
+{{ '/javascripts/doc.js' | javascript_include_tag }}

@@ -1,0 +1,32 @@
+.api-list {
+  padding-top: 25px;
+  display: flex;
+  align-items: stretch;
+}
+
+.api-list a {
+  flex-grow: 1;
+}
+
+.api-wrapper {
+  background: darkslategray;
+  padding: 17px;
+  border-radius: 11px;
+  color: white;
+  font-size: large;
+  display: grid;
+  margin: 10px;
+  text-align: center;
+}
+
+.not-found {
+  text-align: center;
+}
+
+.not-found {
+  font-size: 20px;
+}
+
+.not-found img {
+  width: 10%;
+}
