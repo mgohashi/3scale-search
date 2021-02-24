@@ -44,16 +44,36 @@ function renderList() {
     var name = system_names[i]; // system_name
     var description;
     var url;
-    if (services[system_names[i]].name != null) { // if present, name is a better option
+    var supportEmail;
+    var subscribable;
+    var appsIdentifier;
+    var state;
+           
+     if (services[system_names[i]].name != null) { // if present, name is a better option
       name = decodeURIComponent(services[system_names[i]].name.replace(/\+/g, '%20'));
-    }
-    if (services[system_names[i]].description != null) { // if present, description is a better option
+     }
+     if (services[system_names[i]].description != null) { // if present, description is a better option
       description = decodeURIComponent(services[system_names[i]].description.replace(/\+/g, '%20'));
-    }
-    if (services[system_names[i]].url != null) { // if present, description is a better option
+     }
+     if (services[system_names[i]].url != null) { // if present, description is a better option
       url = decodeURIComponent(services[system_names[i]].url.replace(/\+/g, '%20'));
-    }
-    $("<div class='api-wrapper'>").text(name).append("<span>" + description + "</span>").append("<span>" + url + "</span>").appendTo($("<a>", { "href": "?api=" + system_names[i] }).appendTo($(".api-list")));
+     }
+     if (services[system_names[i]].supportEmail != null) { // if present, description is a better option
+      supportEmail = decodeURIComponent(services[system_names[i]].supportEmail.replace(/\+/g, '%20'));
+     }
+     if (services[system_names[i]].subscribable != null) { // if present, description is a better option
+       subscribable= decodeURIComponent(services[system_names[i]].subscribable.replace(/\+/g, '%20'));
+     }
+     if (services[system_names[i]].appsIdentifier != null) { // if present, description is a better option
+      appsIdentifier = decodeURIComponent(services[system_names[i]].appsIdentifier.replace(/\+/g, '%20'));
+     }
+    if (subscribable) { 
+      state = 'publishedv2.png';
+    } else {
+      state = 'deprecatedv2.png';
+    }   
+    
+     $("<div class='api-wrapper'>").text(name).append("<div class='card-body bg-catalog'><span>" + description + "</span><hr><span class='float-left'><b>Owner:</b>"+supportEmail+ "</span><span class='float-right'><b>Authentication:</b>"+ appsIdentifier +"</span></div>").append("<a class='card-footer text-white clearfix small z-1' href='"+ url +"' target='_blank'><span class='float-left'>Download</span><span class='float-right'><img src='/images/"+ state +"' width='142' height='50'></span></a></div>").appendTo($("<a>", { "href": "?api=" + system_names[i] }).appendTo($(".api-list")));
   }
 }
 
@@ -66,6 +86,7 @@ var filtered = services;
     $(".api-list-container").css("display", "none");
     var url = services[api].url;
     var serviceEndpoint = services[api].serviceEndpoint;
+    console.log(serviceEndpoint);
     SwaggerUI({ url: url, dom_id: "#swagger-ui-container", filter: true }, serviceEndpoint);
   } else {
     renderList();
