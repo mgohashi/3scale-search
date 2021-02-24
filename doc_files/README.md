@@ -19,9 +19,9 @@ In the following list you can find some customizations implemented
  - It shows services which at least an ActiveDoc configured. If the service has multiple ActiveDocs it takes the first one
  - It shows the published image when there is at least an 3scale application plan published (subscribable) and the deprecation image otherwise.
  - It includes some service metadata such as:
-    -Owner: support email per service defined in 3scale administration console.
-    -Description: the text filled in the service description field.
-    -Authentication: method used for authenticate the API
+   - Owner: support email per service defined in 3scale administration console.
+   - Description: the text filled in the service description field.
+   - Authentication: method used for authenticate the API
 
 
 ## Final result 
