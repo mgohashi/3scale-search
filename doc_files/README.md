@@ -1,7 +1,7 @@
 # 3scale Search  
 This repository can be used as a reference to show a sample code to customize the 3scale's developer portal.
 
-## Customization - additional images to add
+## Deprecated-Published customization - additional images to add
 
    - Section: `images`
    - Path: `/images/deprecatedv2.png`
@@ -12,9 +12,9 @@ This repository can be used as a reference to show a sample code to customize th
    - Attatchment: [publishedv2.png](../Root/images/publishedv2.png)
 
 
-## Changes added 
+## Changes included 
 
-In the following list you can find some customizations implemented
+In the following list you can find some small customizations implemented
 
  - It shows services which at least an ActiveDoc configured. If the service has multiple ActiveDocs it takes the first one
  - It shows the published image when there is at least an 3scale application plan published (subscribable) and the deprecation image otherwise.
