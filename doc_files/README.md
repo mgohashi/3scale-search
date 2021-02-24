@@ -5,11 +5,11 @@ This repository can be used as a reference to show a sample code to customize th
 
    - Section: `images`
    - Path: `/images/deprecatedv2.png`
-   - Attatchment: [deprecatedv2.png](Root/images/deprecatedv2.png)
+   - Attatchment: [deprecatedv2.png](../Root/images/deprecatedv2.png)
 
    - Section: `images`
    - Path: `/images/publishedv2.png`
-   - Attatchment: [publishedv2.png](Root/images/publishedv2.png)
+   - Attatchment: [publishedv2.png](../Root/images/publishedv2.png)
 
 
 ## Changes added 
@@ -28,5 +28,5 @@ In the following list you can find some customizations implemented
 
 You should see something like the following picture:
 
-![](doc_files/3scale-search-screenshot1.png)
+![](3scale-search-screenshot1.png)
 
