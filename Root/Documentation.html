@@ -17,15 +17,21 @@
 
 <script type="application/javascript">
   var services = {
-  {% for item in provider.api_specs %}
+
+  {% for itr in provider.services %}  
+  {% for item in itr.api_specs %}
   {% assign status = item.service.system_name | slice: 0,2 %}
-    "{{ item.system_name }}": {
-      name: "{{ item.system_name|url_encode }}",
+    "{{ item.service.name }}": {
+      name: "{{ item.service.name|url_encode }}",
       url: "{{ item.url }}",
       description: "{{ item.service.description|url_encode }}",
-      serviceEndpoint: "{{ item.api_product_production_public_base_url }}"
+      serviceEndpoint: "{{ item.api_product_production_public_base_url }}",
+      supportEmail: "{{ item.service.support_email|url_encode }}",
+      subscribable: "{{ item.service.application_plans > 0}}",
+      appsIdentifier: "{{ item.service.apps_identifier }}",        
     },
-  {% endfor %}
+  {% endfor %}  
+  {% endfor %}  
   };
    console.log(services);
 </script>
