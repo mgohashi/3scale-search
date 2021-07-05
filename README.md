@@ -7,7 +7,7 @@ This repository can be used as a reference to show a sample code to customize th
 In the following list you can find the required components
 
  - Openshift 4 or Code Ready Containers
- - 3scale 2.9
+ - 3scale 2.10
 
 ## Customization process
 
@@ -47,6 +47,11 @@ You should see something like the following picture:
 
 ![](doc_files/search_demo_1.gif)
 
+And when you have more APIs than you would need to see
+
+![](doc_files/search_demo_3.gif)
+
 And when you try to go into an API
 
 ![](doc_files/search_demo_2.gif)
+

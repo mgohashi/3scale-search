@@ -22,19 +22,18 @@
   var services = {
   {% for itr in provider.services %}
   	{% for item in itr.api_specs %}
-    	{% for i in (1..10) %}
-  		{% assign status = item.service.system_name | slice: 0,2 %}
-        "{{ item.service.name }}-{{ item.system_name }}-{{ i }}": {
-          name: "{{ item.service.name|url_encode }} - {{ item.system_name|url_encode }}",
-          url: "{{ item.url }}",
-          description: "{{ item.service.description|url_encode }}",
-          serviceEndpoint: "{{ item.api_product_production_public_base_url }}",
-          supportEmail: "{{ item.service.support_email|url_encode }}",
-          subscribable: "{{ item.service.application_plans > 0}}",
-          appsIdentifier: "{{ item.service.apps_identifier }}"
-        },
-    	{% endfor %}
-    {% endfor %}
+       {% comment %} {% for i in (1..10) %} {% endcomment %}
+            "{{ item.service.name }}-{{ item.system_name }}-{{ i }}": {
+                name: "{{ item.service.name|url_encode }} - {{ item.system_name|url_encode }}",
+                url: "{{ item.url }}",
+                description: "{{ item.service.description|url_encode }}",
+                serviceEndpoint: "{{ item.api_product_production_public_base_url }}",
+                supportEmail: "{{ item.service.support_email|url_encode }}",
+                subscribable: "{{ item.service.application_plans > 0}}",
+                appsIdentifier: "{{ item.service.apps_identifier }}"
+            },
+         {% comment %} {% endfor %} {% endcomment %}
+      {% endfor %}
   {% endfor %}
   };
 </script>
