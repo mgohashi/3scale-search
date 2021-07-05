@@ -2,6 +2,14 @@
 
 This repository can be used as a reference to show a sample code to customize the 3scale's developer portal.
 
+## Features
+
+- [x] Support for several APIs
+- [x] Support for hidden ActiveDoc API
+- [x] Changes the API block color according to the API state
+- [x] Search capabilities in both Documentation and API page
+- [x] Pagination feature
+
 ## Pre-requisites
 
 In the following list you can find the required components
