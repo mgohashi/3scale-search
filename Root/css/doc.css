@@ -7,8 +7,12 @@
   flex-grow: 1;
 }
 
+.card-warn {
+	background: rgba(150, 150, 150, 0.98) !important;
+}
+
 .api-wrapper {
-  background: darkslategray;
+  background: rgba(34, 129, 204, 0.98);
   padding: 17px;
   border-radius: 11px;
   color: white;
@@ -16,6 +20,10 @@
   display: grid;
   margin: 10px;
   text-align: center;
+}
+
+.api-list a:hover {
+  text-decoration: none;
 }
 
 .not-found {
@@ -280,4 +288,14 @@
   display: block;
   clear: both;
   content: "";
+}
+
+.api-pagination {
+  text-align: center;
+}
+
+.api-pagination button {
+	width: 47%;
+    padding: 10px;
+    margin: 15px;
 }

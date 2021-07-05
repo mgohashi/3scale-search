@@ -8,6 +8,9 @@
     <input id="search-field"  class="form-control" type="text" placeholder="Search by the name of the API or the description..." aria-label="Search">
   </div>
   <div class="api-list"></div>
+  <div class="api-pagination">
+    <button id="more-btn" class="btn btn-primary btn-lg" style="width: 90%;" onclick="more()">More</button>
+  </div>
 </div>
 
 <div class="swagger-section">
@@ -17,23 +20,23 @@
 
 <script type="application/javascript">
   var services = {
-
-  {% for itr in provider.services %}  
-  {% for item in itr.api_specs %}
-  {% assign status = item.service.system_name | slice: 0,2 %}
-    "{{ item.service.name }}": {
-      name: "{{ item.service.name|url_encode }}",
-      url: "{{ item.url }}",
-      description: "{{ item.service.description|url_encode }}",
-      serviceEndpoint: "{{ item.api_product_production_public_base_url }}",
-      supportEmail: "{{ item.service.support_email|url_encode }}",
-      subscribable: "{{ item.service.application_plans > 0}}",
-      appsIdentifier: "{{ item.service.apps_identifier }}",        
-    },
-  {% endfor %}  
-  {% endfor %}  
+  {% for itr in provider.services %}
+  	{% for item in itr.api_specs %}
+    	{% for i in (1..10) %}
+  		{% assign status = item.service.system_name | slice: 0,2 %}
+        "{{ item.service.name }}-{{ item.system_name }}-{{ i }}": {
+          name: "{{ item.service.name|url_encode }} - {{ item.system_name|url_encode }}",
+          url: "{{ item.url }}",
+          description: "{{ item.service.description|url_encode }}",
+          serviceEndpoint: "{{ item.api_product_production_public_base_url }}",
+          supportEmail: "{{ item.service.support_email|url_encode }}",
+          subscribable: "{{ item.service.application_plans > 0}}",
+          appsIdentifier: "{{ item.service.apps_identifier }}"
+        },
+    	{% endfor %}
+    {% endfor %}
+  {% endfor %}
   };
-   console.log(services);
 </script>
 
 {{ '/javascripts/doc.js' | javascript_include_tag }}
