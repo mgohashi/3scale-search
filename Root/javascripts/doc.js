@@ -80,9 +80,6 @@ function filterUnpublishedServices() {
           $.get(window.location.origin + item[1].url.replace(/\+/g, '%20'),
                function() {
             publishedServices[item[0]] = item[1];
-            if (serviceEntries.length <= end) {
-              $(".api-pagination").remove();
-            }
           }).fail(function() {
       		console.log( "Preventing not showing non published api doc: " + item[1].url );
     	  }));
@@ -92,7 +89,13 @@ function filterUnpublishedServices() {
   Promise.allSettled(promises)
     .then(function() {
     	const newValue = $("#search-field").val().trim();
-    	filtered = filter(newValue, newValue, newValue);;
+    	filtered = filter(newValue, newValue, newValue);
+    	console.log("filtered.length="+Object.entries(filtered).length);
+    	console.log("publishedServices.length="+Object.entries(publishedServices).length)
+        
+        if (serviceEntries.length <= end) {
+              $(".api-pagination").remove();
+        }
   	})
     .then(renderResults)
     .then(function() {
