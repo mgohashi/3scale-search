@@ -22,7 +22,7 @@
   var services = {
   {% for itr in provider.services %}
   	{% for item in itr.api_specs %}
-       {% comment %} {% for i in (1..10) %} {% endcomment %}
+  		 {% assign status = item.service.system_name | slice: 0,2 %}
             "{{ item.service.name }}-{{ item.system_name }}-{{ i }}": {
                 name: "{{ item.service.name|url_encode }} - {{ item.system_name|url_encode }}",
                 url: "{{ item.url }}",
@@ -32,7 +32,6 @@
                 subscribable: "{{ item.service.application_plans > 0}}",
                 appsIdentifier: "{{ item.service.apps_identifier }}"
             },
-         {% comment %} {% endfor %} {% endcomment %}
       {% endfor %}
   {% endfor %}
   };

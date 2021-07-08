@@ -70,10 +70,8 @@ function filterUnpublishedServices() {
   var serviceEntries = Object.entries(services).sort();
   var end = i + MAX_PAGE_ENTRIES;
   
-  if (serviceEntries.length < MAX_PAGE_ENTRIES) {
+  if (end > serviceEntries.length) {
     end = serviceEntries.length;
-  } else if (serviceEntries.length < end) {
-    end = i - serviceEntries.length;
   }
   
   serviceEntries.slice(i, end).forEach(
